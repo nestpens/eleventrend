@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ElevenTrend | Inspiring the Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gradient-to-br from-purple-50 to-blue-50 text-gray-800 font-sans leading-relaxed"
+  >
+    <header class="bg-white shadow-lg py-4 px-6 fixed w-full top-0 z-10">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a
+          href="/"
+          class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600"
+          >ElevenTrend</a
+        >
+        <nav class="flex space-x-6">
+          <a
+            href="#home"
+            class="text-gray-700 font-medium hover:text-purple-600 hover:underline transition-colors"
+            >Home</a
+          >
+          <a
+            href="#trends"
+            class="text-gray-700 font-medium hover:text-purple-600 hover:underline transition-colors"
+            >Trends</a
+          >
+          <a
+            href="#insights"
+            class="text-gray-700 font-medium hover:text-purple-600 hover:underline transition-colors"
+            >Insights</a
+          >
+          <a
+            href="#culture"
+            class="text-gray-700 font-medium hover:text-purple-600 hover:underline transition-colors"
+            >Culture</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto mt-20 pt-8 pb-12 px-6">
+      <!-- Hero Section -->
+      <section
+        class="mb-12 flex flex-col md:flex-row items-center gap-8 animate-fade-in"
+      >
+        <div class="md:w-1/2">
+          <h1 class="text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            Discover the Pulse of Tomorrow
+          </h1>
+          <p class="text-lg text-gray-600 mb-6">
+            ElevenTrend brings you the latest in innovation, style, and culture.
+            Explore bold ideas that shape the future.
+          </p>
+          <a
+            href="#posts"
+            class="inline-block bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium py-3 px-6 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-colors"
+            >Explore Now</a
+          >
+        </div>
+        <div class="md:w-1/2">
+          <img
+            src="https://i.ibb.co.com/bM1sXWPx/sexy-men-s-underwear.jpg"
+            alt="Trend Hero Image"
+            class="w-full h-80 object-cover rounded-xl shadow-lg hover-scale"
+          />
+        </div>
+      </section>
+
+      <!-- Blog Posts Section -->
+      <section id="posts" class="mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6 animate-fade-in">
+          Latest Trends
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="post-grid"
+        ></div>
+      </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-6">
+      <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center"
+      >
+        <div class="text-2xl font-bold mb-4 md:mb-0">ElevenTrend</div>
+        <nav class="flex flex-wrap justify-center md:justify-end space-x-6">
+          <a
+            href="#home"
+            class="text-gray-300 hover:text-white hover:underline transition-colors"
+            >Home</a
+          >
+          <a
+            href="#trends"
+            class="text-gray-300 hover:text-white hover:underline transition-colors"
+            >Trends</a
+          >
+          <a
+            href="#insights"
+            class="text-gray-300 hover:text-white hover:underline transition-colors"
+            >Insights</a
+          >
+          <a
+            href="#culture"
+            class="text-gray-300 hover:text-white hover:underline transition-colors"
+            >Culture</a
+          >
+        </nav>
+      </div>
+      <div class="max-w-7xl mx-auto mt-4 text-center text-gray-400 text-sm">
+        &copy; 2025 ElevenTrend. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Mock data for blog posts
+      const posts = [
+        {
+          id: 1,
+          title: "Confidence Starts Underneath: Why Bold Underwear Matters",
+          excerpt:
+            "the most powerful statements often begin with the layers no one sees. While outerwear attracts attention and accessories add flair, it’s what you wear underneath that often shapes your confidence the most.",
+          image: "https://i.ibb.co.com/bM1sXWPx/sexy-men-s-underwear.jpg",
+          date: "September 8, 2025",
+          category: "Store",
+          url: "/sexy-men-s-underwear.html",
+        },
+      ];
+
+      // Dynamic content controller
+      function loadPosts() {
+        const postGrid = document.getElementById("post-grid");
+        postGrid.innerHTML = ""; // Clear existing content
+
+        posts.forEach((post) => {
+          const postCard = document.createElement("div");
+          postCard.className =
+            "bg-white rounded-xl shadow-lg overflow-hidden hover-scale animate-fade-in";
+          postCard.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <a href="${post.url}" class="text-gray-900 hover:text-purple-600 hover:underline">${post.title}</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">${post.excerpt}</p>
+                        <div class="text-sm text-gray-500">${post.date} • ${post.category}</div>
+                    </div>
+                `;
+          postGrid.appendChild(postCard);
+        });
+      }
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        loadPosts();
+      });
+    </script>
+  </body>
+</html>
